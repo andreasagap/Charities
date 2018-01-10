@@ -56,8 +56,8 @@ public class CharityDetails extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == REQUEST_CODE){
-            charitiesPreferences.saveCharity(selectedCharity.getName(),selectedCharity.getId());
+        if (requestCode == REQUEST_CODE) {
+            charitiesPreferences.saveCharity(selectedCharity.getName(), selectedCharity.getId());
         }
     }
 
@@ -79,50 +79,50 @@ public class CharityDetails extends AppCompatActivity {
     }
 
     @OnClick(R.id.detail_button_call)
-    public void callButton(View view){
-        Intent i = CallAndSms.call(this,selectedCharity.getTelephone());
-        if (i != null){
+    public void callButton(View view) {
+        Intent i = CallAndSms.call(this, selectedCharity.getTelephone());
+        if (i != null) {
             startActivityForResult(i, REQUEST_CODE);
         }
     }
 
     @OnClick(R.id.detail_button_sms)
-    public void smsButton(View view){
-        Intent i = CallAndSms.sms(this,selectedCharity.getSms(),selectedCharity.getSmstext());
-        if (i != null){
+    public void smsButton(View view) {
+        Intent i = CallAndSms.sms(this, selectedCharity.getSms(), selectedCharity.getSmstext());
+        if (i != null) {
             startActivityForResult(i, REQUEST_CODE);
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void setData(Charity selectedCharity){
+    private void setData(Charity selectedCharity) {
 
-                if(selectedCharity.getIconlink()!="")
-                {
-                    iv_charity_icon.setImageResource(selectedCharity.getDrawableIconPosition());
-                    iv_charity_default_icon.setVisibility(View.GONE);
-                }
-                tv_charity_name.setText(selectedCharity.getName());
-                tv_charity_desc.setText(selectedCharity.getDescription());
-                if (selectedCharity.getSms().equals("0")){
-                    sendSms.setEnabled(false);
-                    tv_sms_cost.setText("");
-                }else{
-                    tv_sms_cost.setText(selectedCharity.getSmscost());
-                }
-                if (selectedCharity.getTelephone().equals("0")){
-                    makeCall.setEnabled(false);
-                    tv_call_cost.setText("");
-                }else{
-                    tv_call_cost.setText(selectedCharity.getTelephonecost());
-                }
+        if (selectedCharity.getIconlink() != "") {
+            iv_charity_icon.setImageResource(selectedCharity.getDrawableIconPosition());
+            iv_charity_default_icon.setVisibility(View.GONE);
+        }
+        tv_charity_name.setText(selectedCharity.getName());
+        tv_charity_desc.setText(selectedCharity.getDescription());
+        if (selectedCharity.getSms().equals("0")) {
+            sendSms.setEnabled(false);
+            tv_sms_cost.setText("");
+        } else {
+            tv_sms_cost.setText(selectedCharity.getSmscost());
+        }
+        if (selectedCharity.getTelephone().equals("0")) {
+            makeCall.setEnabled(false);
+            tv_call_cost.setText("");
+        } else {
+            tv_call_cost.setText(selectedCharity.getTelephonecost());
+        }
     }
 
 }

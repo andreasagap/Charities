@@ -14,18 +14,20 @@ public class MainViewModel extends ViewModel {
     public MutableLiveData<ArrayList<Charity>> charitiesList;
     //an exei eidi katebasei ta dedomena gia na min xreiazetai na ksanakatevoun
     public boolean fetched = false;
+
     public LiveData<ArrayList<Charity>> getCharitiesList() {
-        if (charitiesList == null){
+        if (charitiesList == null) {
             charitiesList = new MutableLiveData<ArrayList<Charity>>();
         }
         return charitiesList;
     }
-    public void addCharity(Charity charity){
-         ArrayList<Charity> charityListTemp;
-         charityListTemp = charitiesList.getValue();
-            if (charityListTemp == null) {
-                charityListTemp = new ArrayList<Charity>();
-            }
+
+    public void addCharity(Charity charity) {
+        ArrayList<Charity> charityListTemp;
+        charityListTemp = charitiesList.getValue();
+        if (charityListTemp == null) {
+            charityListTemp = new ArrayList<Charity>();
+        }
         charityListTemp.add(charity);
 
         charitiesList.setValue(charityListTemp);
@@ -34,6 +36,6 @@ public class MainViewModel extends ViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        Log.v("viewmodel","cleard");
+        Log.v("viewmodel", "cleard");
     }
 }

@@ -49,22 +49,21 @@ public class Charity implements Parcelable {
 
     private int DrawableIconPosition;
 
-    public Charity(){
+    public Charity() {
 
     }
 
     /**
-     *
-     * @param id unuque id of the charity isntitute
-     * @param name name of the institute
-     * @param description long text with a description of the institute
-     * @param sms sms phone number to which the app will send the messages. 0 if not provided
-     * @param smscost text containing info about the cost of the sms
-     * @param smstext text that the sms should containg
-     * @param telephone phone number to which the app will make calls. 0 if not provided
+     * @param id            unuque id of the charity isntitute
+     * @param name          name of the institute
+     * @param description   long text with a description of the institute
+     * @param sms           sms phone number to which the app will send the messages. 0 if not provided
+     * @param smscost       text containing info about the cost of the sms
+     * @param smstext       text that the sms should containg
+     * @param telephone     phone number to which the app will make calls. 0 if not provided
      * @param telephonecost text containing info about the cost of the phone call
-     * @param iconlink link to the firebase storage resource containing the logo of the institution
-     * @param imageurls comma seperated list of links to the firebase storage containing photos of the institute
+     * @param iconlink      link to the firebase storage resource containing the logo of the institution
+     * @param imageurls     comma seperated list of links to the firebase storage containing photos of the institute
      */
     public Charity(int id, String name, String description, String sms, String smscost, String smstext, String telephone, String telephonecost, String iconlink, String imageurls) {
         this.id = id;
@@ -94,7 +93,6 @@ public class Charity implements Parcelable {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
 
     public String getSmscost() {
@@ -160,9 +158,14 @@ public class Charity implements Parcelable {
     public void setImageurls(String imageurls) {
         this.imageurls = imageurls;
     }
-    public int getDrawableIconPosition() {return DrawableIconPosition; }
 
-    public void setDrawableIconPosition(Integer drawableIconPosition) {DrawableIconPosition = drawableIconPosition;}
+    public int getDrawableIconPosition() {
+        return DrawableIconPosition;
+    }
+
+    public void setDrawableIconPosition(Integer drawableIconPosition) {
+        DrawableIconPosition = drawableIconPosition;
+    }
 
     @Override
     public String toString() {
@@ -211,7 +214,7 @@ public class Charity implements Parcelable {
         this.telephonecost = in.readString();
         this.iconlink = in.readString();
         this.imageurls = in.readString();
-        this.DrawableIconPosition=in.readInt();
+        this.DrawableIconPosition = in.readInt();
     }
 
     public static final Creator<Charity> CREATOR = new Creator<Charity>() {

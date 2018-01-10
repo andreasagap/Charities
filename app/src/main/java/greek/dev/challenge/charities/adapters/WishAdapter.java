@@ -56,9 +56,9 @@ public class WishAdapter extends
         TextView authorTextView = holder.authorTextView;
         ColorGenerator generator = ColorGenerator.MATERIAL;
 
-        int color=generator.getRandomColor();
-        int color2=generator.getRandomColor();
-        authorTextView.setText("\uf2be "+wish.getAuthor()+ "\n" + "\uf004 "+ wish.getCharityName());
+        int color = generator.getRandomColor();
+        int color2 = generator.getRandomColor();
+        authorTextView.setText("\uf2be " + wish.getAuthor() + "\n" + "\uf004 " + wish.getCharityName());
         authorTextView.setTextColor(color);
         wishTextView.setBackgroundColor(color);
     }

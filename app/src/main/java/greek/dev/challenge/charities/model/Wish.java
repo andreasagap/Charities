@@ -14,7 +14,7 @@ public class Wish {
     private String charityName;
     private long timestamp;
 
-    public Wish(){
+    public Wish() {
         //default constructor needed...
     }
 
@@ -34,8 +34,12 @@ public class Wish {
         return author;
     }
 
-    public long getTimestamp() {return timestamp;}
+    public long getTimestamp() {
+        return timestamp;
+    }
 
-    public String getCharityName() {return charityName;}
+    public String getCharityName() {
+        return charityName;
+    }
 
 }
